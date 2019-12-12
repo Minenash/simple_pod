@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:simple_pod/Theme.dart';
+import 'package:simple_pod/screens/Player.dart';
 import 'package:simple_pod/screens/home.dart';
 
 void main() {
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         '/home/podcasts' : (context) => HomeScreen(),
         '/home/playlists': (context) => HomeScreen(),
         '/home/settings' : (context) => HomeScreen(),
-        '/player'        : (context) => HomeScreen(),
+        '/player'        : (context) => PlayerScreen(),
       },
     );
   }

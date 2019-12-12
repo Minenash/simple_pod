@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 
-  static setState(Function fn) => _HomeScreenState.state.setState(fn);
+  static setState(Function fn) => _HomeScreenState.state?.setState(fn);
 
   static bool miniplayerDocked = false;
 

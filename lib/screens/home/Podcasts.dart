@@ -14,7 +14,7 @@ class PodcastsScreen extends StatefulWidget {
 
   static Widget appbar() {
     return AppBar(
-      title: Text("Podcast"),
+      title: Text("Podcasts"),
       leading: IconButton(
         icon: Icon(Icons.sort),
         onPressed: () {},
