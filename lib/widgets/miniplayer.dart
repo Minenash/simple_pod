@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
+import 'package:simple_pod/Settings.dart';
 
-import 'package:simple_pod/Theme.dart';
+import 'package:simple_pod/AppTheme.dart';
 import 'ArtworkImage.dart';
 import 'eText.dart';
 import 'package:simple_pod/Playing.dart';
@@ -24,7 +25,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
 
     width = MediaQuery.of(context).size.width;
 
-    if (!HomeScreen.miniplayerDocked) {
+    if (!Settings.miniplayerDocked) {
       return miniPlayer();
     }
     else {
@@ -43,7 +44,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
 
   Widget miniPlayer() {
 
-    bool docked = HomeScreen.miniplayerDocked;
+    bool docked = Settings.miniplayerDocked;
 
     return Container(
       margin: EdgeInsets.all(docked ? 0 : 8 ),
@@ -78,7 +79,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
               IconButton(
                 icon: Icon(Icons.pause),
                 iconSize: 38,
-                onPressed: () => setState(() => HomeScreen.miniplayerDocked = !docked),
+                onPressed: () => setState(() => Settings.miniplayerDocked = !docked),
               ),
               SizedBox(width: docked? 4 : 8),
             ],

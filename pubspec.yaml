@@ -28,6 +28,7 @@ dependencies:
   url_launcher: ^4.0.2
   http: ^0.12.0+2
   dots_indicator: ^1.1.0
+  flutter_material_color_picker: ^1.0.5
 
   cupertino_icons: ^0.1.2
 

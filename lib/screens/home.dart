@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:simple_pod/Theme.dart';
+import 'package:simple_pod/AppTheme.dart';
 import 'package:simple_pod/screens/home/Playlists.dart';
 import 'package:simple_pod/screens/home/Queue.dart';
 import 'package:simple_pod/screens/home/Settings.dart';
@@ -13,8 +13,6 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 
   static setState(Function fn) => _HomeScreenState.state?.setState(fn);
-
-  static bool miniplayerDocked = false;
 
 }
 class _HomeScreenState extends State<HomeScreen> {

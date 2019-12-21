@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_pod/AppTheme.dart';
 
 class SeekableProgressBar extends StatefulWidget {
 
@@ -6,17 +7,19 @@ class SeekableProgressBar extends StatefulWidget {
 
   final double progress, width;
 
-  final Color activeColor;
+  Color activeColor;
   final Color inactiveColor;
 
   SeekableProgressBar({Key key,
     this.onChange,
     this.progress = 0,
     this.width,
-    this.activeColor = Colors.white,
+    this.activeColor,
     this.inactiveColor = const Color(0x33FFFFFF),
   }) : assert(progress >= 0 && progress <= 1),
-       super(key: key);
+       super(key: key) {
+     if (activeColor == null) activeColor = AppTheme.primary;
+  }
 
   @override
   _SeekableProgressBarState createState() => _SeekableProgressBarState(

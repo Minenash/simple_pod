@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:simple_pod/Theme.dart';
+import 'package:simple_pod/Settings.dart';
+import 'package:simple_pod/AppTheme.dart';
 import 'package:simple_pod/screens/home.dart';
 import 'package:simple_pod/widgets/ArtworkImage.dart';
 import 'package:simple_pod/widgets/eText.dart';
@@ -53,7 +54,7 @@ class _PodcastsScreenState extends State<PodcastsScreen> {
         double height = constraints.maxHeight;
 
         return Container(
-          margin: EdgeInsets.only(top: 2, bottom: HomeScreen.miniplayerDocked? 68 : 0),
+          margin: EdgeInsets.only(top: 2, bottom: Settings.miniplayerDocked? 68 : 0),
           width: width,
           height: height,
           child: ListView(
@@ -63,7 +64,7 @@ class _PodcastsScreenState extends State<PodcastsScreen> {
               podcastEntry("Hello Internet", "13d", 101, 101, 101, 0, 0, "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Hello_Internet_Logo.svg/800px-Hello_Internet_Logo.svg.png"),
               podcastEntry("Thoroughly Considered", "1m", 55, 0, 55, 0, 0, "https://relayfm.s3.amazonaws.com/uploads/broadcast/image_2x/22/tc_artwork.png"),
               podcastEntry("The British History Podcast", "6d", 347, 0, 15, 0, 332, "https://is2-ssl.mzstatic.com/image/thumb/Podcasts123/v4/ee/46/ce/ee46ce03-497c-a784-ee75-7173b5e2c601/mza_15550679075073229118.jpg/268x0w.jpg"),
-              if (HomeScreen.miniplayerDocked) SizedBox(height: 90)
+              if (Settings.miniplayerDocked) SizedBox(height: 90)
             ],
           ),
         );
@@ -183,7 +184,7 @@ class DrawTriangle extends CustomPainter {
 
   DrawTriangle() {
     _paint = Paint()
-      ..color = AppTheme.unreadBadge
+      ..color = Settings.badgeColor ?? AppTheme.unreadBadge
       ..style = PaintingStyle.fill;
   }
 

@@ -6,11 +6,12 @@ import 'package:html/dom.dart' as dom;
 import 'package:http/http.dart' as http;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
+import 'package:simple_pod/Settings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:simple_pod/data_structures/data_structures.dart';
 import 'package:simple_pod/screens/home.dart';
-import 'package:simple_pod/Theme.dart';
+import 'package:simple_pod/AppTheme.dart';
 import 'package:simple_pod/widgets/ArtworkImage.dart';
 import 'package:simple_pod/widgets/SeekBar.dart';
 import 'package:simple_pod/widgets/eText.dart';
@@ -48,7 +49,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
       episodeDescription = Html(
         data: episode.showNotes,
         customTextStyle: (node, style) => htmlStyle(node, style),
-        linkStyle: TextStyle(decoration: TextDecoration.none, color: Colors.orange),
+        linkStyle: TextStyle(decoration: TextDecoration.none, color: Settings.linkColor ?? AppTheme.link),
       );
 
       setState(() {});
@@ -59,8 +60,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
   TextStyle htmlStyle(node, base) {
     if (node is dom.Element)
       switch (node.localName) {
-        case 'p':  return base.merge(TextStyle(color: Colors.grey[300]));
-        case 'li':  return base.merge(TextStyle(color: Colors.grey[300]));
+        case 'p':  return base.merge(TextStyle(color: AppTheme.secondary));
+        case 'li':  return base.merge(TextStyle(color: AppTheme.secondary));
         case 'h4': return base.merge(TextStyle(fontWeight: FontWeight.w300));
         case 'h5': return base.merge(TextStyle(fontSize: 15));
       }
@@ -232,7 +233,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                 SizedBox(height: 4),
                 eText(Playing.episodeName, size: 18),
                 SizedBox(height: 4),
-                eText(Playing.podcastName + "   •   " + Playing.episodeRelease, color: Colors.grey[300]),
+                eText(Playing.podcastName + "   •   " + Playing.episodeRelease, color: AppTheme.secondary),
                 SizedBox(height: 32),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -268,9 +269,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
             bottom: 64,
             child: Row(
               children: <Widget>[
-                eText("  00:32:05", color: Colors.grey[300]),
+                eText("  00:32:05", color: AppTheme.secondary),
                 SeekableProgressBar(width: width - 142, progress: 0.5),
-                eText("-00:25:21  ", color: Colors.grey[300]),
+                eText("-00:25:21  ", color: AppTheme.secondary),
               ],
             ),
           ),
@@ -290,7 +291,6 @@ class _PlayerScreenState extends State<PlayerScreen> {
     return IconButton(
       icon: Icon(icon),
       iconSize: 42,
-      color: Colors.white,
       onPressed: onPressed,
     );
   }
@@ -298,7 +298,6 @@ class _PlayerScreenState extends State<PlayerScreen> {
     return IconButton(
       icon: Icon(icon),
       iconSize: 24,
-      color: Colors.white,
       onPressed: onPressed,
     );
   }
